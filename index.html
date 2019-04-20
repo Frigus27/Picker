@@ -2,18 +2,44 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Picker</title>
+    <link rel="stylesheet" type="text/css" href="src/maintype.css" />
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
 
+    <div style="position: absolute; width: 400px; height: 50px; top:50px; left: 100px">
+      <div style="text-align: center; font-family: LantingHei; font-size: 64pt">Picker</div>
+    </div>
+
+    <div style="border: 0cm; position: absolute; width: 200px; height: 200px; top: 230px; left: 200px">
+      <input type="image" id="MainButton" src="src/play.svg" alt="" width="100%" onclick="MainButtonOnClick()"/>
+    </div>
+
+    <div style="border: 0cm; position: absolute; width: 48px; height: 48px; left: 532px; top:408px ">
+      <input type="image" id="SettingButton" src="src/setting.svg" alt="" width="100%" onclick="SettingButtonOnClick()"/>
+    </div>
     <script>
       // You can also require other files to run in this process
-      require('./renderer.js')
+      require('./renderer.js');
+      
+      var isMainButtonStopped = true;
+
+      function MainButtonOnClick() {
+        if (isMainButtonStopped) {
+            document.getElementById("MainButton").src = "src/pause.svg";
+            // TODO: Unfinished.
+            isMainButtonStopped = false;
+        }
+        else {
+            document.getElementById("MainButton").src = "src/play.svg";
+            // TODO: Unfinished.
+            isMainButtonStopped = true;
+        }
+      }
+
+      function SettingButtonOnClick() {
+        alert('Undone...');
+      }
     </script>
   </body>
 </html>
