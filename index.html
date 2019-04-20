@@ -5,41 +5,50 @@
     <title>Picker</title>
     <link rel="stylesheet" type="text/css" href="src/maintype.css" />
   </head>
-  <body>
 
-    <div style="position: absolute; width: 400px; height: 50px; top:50px; left: 100px">
+  <body>
+    <div style="position: absolute; -webkit-app-region: drag; width:600px; height:64px; top: 0px; left: 0px">
+      <div style="position: absolute; width: 32px; height: 32px; top:8px; left: 8px; -webkit-app-region: no-drag">
+          <input type="image" id="ClosingButton" src="src/closered.svg" alt="" width="100%" onclick="onCloseButtonClicked()"/>
+      </div>
+    </div>
+
+    <div style="position: absolute; width: 400px; height: 50px; top:80px; left: 100px">
       <div style="text-align: center; font-family: LantingHei; font-size: 64pt">Picker</div>
     </div>
 
-    <div style="border: 0cm; position: absolute; width: 200px; height: 200px; top: 230px; left: 200px">
-      <input type="image" id="MainButton" src="src/play.svg" alt="" width="100%" onclick="MainButtonOnClick()"/>
+    <div style="border: 0cm; position: absolute; width: 200px; height: 200px; top: 240px; left: 200px">
+      <input type="image" id="MainButton" src="src/play.svg" alt="" width="100%" onclick="onMainButtonClicked()"/>
     </div>
 
-    <div style="border: 0cm; position: absolute; width: 48px; height: 48px; left: 532px; top:408px ">
-      <input type="image" id="SettingButton" src="src/setting.svg" alt="" width="100%" onclick="SettingButtonOnClick()"/>
+    <div style="border: 0cm; position: absolute; width: 48px; height: 48px; left: 532px; top:440px">
+      <input type="image" id="SettingButton" src="src/setting.svg" alt="" width="100%" />
     </div>
     <script>
       // You can also require other files to run in this process
       require('./renderer.js');
-      
+      var ipc=require('electron').ipcRenderer;
+      // Event handlers
       var isMainButtonStopped = true;
 
-      function MainButtonOnClick() {
+      function onCloseButtonClicked() {
+        ipc.send('window-close');
+      };
+
+      function onMainButtonClicked(){
         if (isMainButtonStopped) {
-            document.getElementById("MainButton").src = "src/pause.svg";
-            // TODO: Unfinished.
-            isMainButtonStopped = false;
+          document.getElementById("MainButton").src = "src/pause.svg";
+          // TODO: Unfinished.
+          isMainButtonStopped = false;
         }
         else {
-            document.getElementById("MainButton").src = "src/play.svg";
-            // TODO: Unfinished.
-            isMainButtonStopped = true;
+          document.getElementById("MainButton").src = "src/play.svg";
+          // TODO: Unfinished.
+          isMainButtonStopped = true;
         }
-      }
+      };
 
-      function SettingButtonOnClick() {
-        alert('Undone...');
-      }
+      
     </script>
   </body>
 </html>

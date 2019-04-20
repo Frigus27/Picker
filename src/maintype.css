@@ -1,4 +1,14 @@
+html,
+body{
+    -webkit-app-region: drag;
+}
+.input{
+    outline: none;
+}
+
+
 @font-face{
     font-family: "LantingHei";
     src: url('./fzltcxh.ttf');
 }
+
