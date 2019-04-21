@@ -16,6 +16,10 @@ class DataProvider {
     }
 
     toString() {
+        return JSON.stringify(this.dataTree);
+    }
+
+    toTree() {
         return JSON.stringify(this.dataTree, null, '    ');
     }
 }
