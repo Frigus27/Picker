@@ -9,8 +9,5 @@
     "author": "Fr0sted 1ce",
     "devDependencies": {
         "electron": "^4.1.4"
-    },
-    "dependencies": {
-        "electron-drag": "^1.2.2"
     }
 }
