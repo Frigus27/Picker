@@ -7,22 +7,28 @@
   </head>
 
   <body>
-    <div style="position: absolute; -webkit-app-region: drag; width:600px; height:64px; top: 0px; left: 0px">
-      <div style="position: absolute; width: 32px; height: 32px; top:8px; left: 8px; -webkit-app-region: no-drag">
+    <div style="position: absolute; -webkit-app-region: drag; width:600px; height:64px; top: 0px; left: 0px;">
+      <div style="position: absolute; width: 32px; height: 32px; top:8px; left: 8px; -webkit-app-region: no-drag; -webkit-user-select: none">
           <input type="image" id="ClosingButton" src="src/closered.svg" alt="" width="100%" onclick="onCloseButtonClicked()"/>
       </div>
+
+      <!--
+      <div style="position: absolute; width: 32px; height: 32px; top: 11px; left: 44px; -webkit-app-region: no-drag; -webkit-user-select: none">
+        <input type="image" id="MinimizeButton" src="src/minimize.svg" alt="" width="82%" onclick="onMinimizeButtonClicked()"/>
+      </div>
+      -->
     </div>
 
     <div style="position: absolute; width: 400px; height: 50px; top:80px; left: 100px">
-      <div style="text-align: center; font-family: LantingHei; font-size: 64pt">Picker</div>
+      <div style="text-align: center; font-family: LantingHei; font-size: 64pt; -webkit-user-select: none">Picker</div>
     </div>
 
     <div style="border: 0cm; position: absolute; width: 200px; height: 200px; top: 240px; left: 200px">
-      <input type="image" id="MainButton" src="src/play.svg" alt="" width="100%" onclick="onMainButtonClicked()"/>
+      <input type="image" id="MainButton" src="src/play.svg" alt="" width="100%" onclick="onMainButtonClicked()" style="-webkit-user-select: none"/>
     </div>
 
     <div style="border: 0cm; position: absolute; width: 48px; height: 48px; left: 532px; top:440px">
-      <input type="image" id="SettingButton" src="src/setting.svg" alt="" width="100%" />
+      <input type="image" id="SettingButton" src="src/setting.svg" alt="" width="100%" style="-webkit-user-select: none"/>
     </div>
     <script>
       // You can also require other files to run in this process
@@ -33,6 +39,10 @@
 
       function onCloseButtonClicked() {
         ipc.send('window-close');
+      };
+
+      function onMinimizeButtonClicked(){
+        ipc.send('window-minimize');
       };
 
       function onMainButtonClicked(){

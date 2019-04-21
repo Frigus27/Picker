@@ -63,3 +63,7 @@ const ipc = require('electron').ipcMain;
 ipc.on('window-close',function(){
 	mainWindow.close();
 });
+
+ipc.on('window-minimize',function(){
+	mainWindow.minimize();
+});
