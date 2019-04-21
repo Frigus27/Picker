@@ -1,15 +1,14 @@
 {
-    "Classes": [
+    "classes": [
         {
-            "Name": "xx",
-            "Students": [
+            "name": "My Class UTF8测试",
+            "students": [
                 {
-                    "Name": "xxxx",
-                    "Disabled": false,
-                    "Prioritized": false
+                    "name": "xxxx",
+                    "disabled": false,
+                    "prioritized": false
                 }
             ]
-            
         }
     ]
 }

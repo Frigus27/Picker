@@ -1,3 +1,10 @@
+// This file provides methods to operate the data file directly.
+// Comment:
+// It's only a low-level abstraction. You should not use the methods
+// given in this file in order to avoid the errors that may cause problems
+// like losing data and so on.
+//
+
 `use strict`;
 
 class DataProvider {
@@ -8,11 +15,13 @@ class DataProvider {
     };
 
     loadFile() {
+        const fs = require('fs');
         this.dataTree  = JSON.parse(fs.readFileSync(this.filePath, 'UTF-8'));
     }
 
     saveFile() {
-        fs.writeFile(this.filePath, JSON.stringify(this.objectTree, null, ' '));
+        const fs = require('fs');
+        fs.writeFileSync(this.filePath, this.toTree());
     }
 
     toString() {

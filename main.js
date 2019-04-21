@@ -68,6 +68,4 @@ ipc.on('window-minimize',function(){
 	mainWindow.minimize();
 });
 
-const data = require('./kernel/provider').dataProvider;
-
-console.log(data.toString());
+require('./debugs');
