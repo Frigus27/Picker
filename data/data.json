@@ -1,12 +1,16 @@
 {
     "classes": [
         {
-            "name": "My Class UTF8测试",
+            "name": "Class Name UTF8测试",
             "students": [
                 {
                     "name": "xxxx",
-                    "disabled": false,
-                    "prioritized": false
+                    "states": [
+                        {
+                            "disabled": false,
+                            "prioritized": false
+                        }
+                    ]
                 }
             ]
         }
